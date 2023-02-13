@@ -2,10 +2,12 @@
 
 .room {
     position:relative;
-    min-height:95vh;    
+    min-height:95vh;  
+    background-color:#FFAEC9;  
 }
 
-.room-region {      
+.room-region {    
+    position: relative;  
     height:85vh;   
     margin: auto;
     display: block;
@@ -15,5 +17,44 @@
 .navigation-and-toys {        
     margin: auto;    
     height:10vh;
+    background-color:#FFAEC9;
 }
 
+.parent {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+
+.kittyOne {
+    position: absolute;
+    top: 100px;
+    left: 500px;
+    z-index: 1;
+}
+
+.kittyTwo {
+    position: absolute;
+    top: 500px;
+    left: 300px;
+    z-index: 1;
+}
+
+.kittyThree {
+    position: absolute;
+    top: 400px;
+    left: 300px;
+    z-index: 1;
+}
+
+.kittyFour {
+    position: absolute;
+    top: 200px;
+    left: 500px;
+    z-index: 1;
+}
+
+.titles {
+    background-color: #FFAEC9;
+}
