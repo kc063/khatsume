@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<!-- 
+    This is a reasonable starting point for the HTML in Sprint 1.
+    Feel free to modify this as you wish.
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../styles/main.css" type="text/css">
+</head>
+<body>
+    <!-- Tell the browser what to show if JavaScript/TypeScript is disabled. -->
+    <noscript>This example requires JavaScript to run.</noscript>
+    <!-- Prepare a region of the page to hold the entire REPL interface -->
+    <div class = "titles">
+        <div class = "game-title"> King House Neko Atsume</div>
+        <div class = "room-title"> Lounge </div>
+
+    </div>
+    <div class="room">
+        <!-- Prepare a region of the page to hold the command history -->
+        <div class="room-region">   
+            <IMG width=1200 alt="A Very Cool Picture of Nim" src="khat.png"> 
+        </div>
+        <hr>
+        <!-- Prepare a region of the page to hold the command input box -->
+        <div class="navigation-and-toys">
+            <div class = "navigation"></div>
+            <div class = "toys"></div>
+        </div>
+    </div>
+    <!-- Load the script! Note: the .js extension is because browsers don't use TypeScript
+    directly. Instead, the author of the site needs to compile the TypeScript to JavaScript. -->
+    <script type=module src="../src/main.js"></script>
+</body>
+</html>

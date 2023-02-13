@@ -1,0 +1,19 @@
+
+
+.room {
+    position:relative;
+    min-height:95vh;    
+}
+
+.room-region {      
+    height:85vh;   
+    margin: auto;
+    display: block;
+    overflow: scroll;   
+}
+
+.navigation-and-toys {        
+    margin: auto;    
+    height:10vh;
+}
+
