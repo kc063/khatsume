@@ -4,39 +4,79 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Neko Atsume: King House Kitties</title>
     <link rel="stylesheet" href="../styles/main.css" type="text/css">
 </head>
 <body>
     <!-- Tell the browser what to show if JavaScript/TypeScript is disabled. -->
     <noscript>This example requires JavaScript to run.</noscript>
     <!-- Prepare a region of the page to hold the entire REPL interface -->
+    <!-- ugliest least modular code ever written -->
+    <script> 
+        function allowDrop(ev) {
+          ev.preventDefault();
+        }
+        
+        function drag(ev) {
+          ev.dataTransfer.setData("text", ev.target.id);
+        }
+        
+        function drop(ev) {
+          ev.preventDefault();
+          var data = ev.dataTransfer.getData("text");
+          ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+
     <div class = "titles">
         <div class = "game-title"> 
-            <IMG width=1200 alt="it's da lounge..." src="Assets/mainbanner.png"> <!--TODO: stretch -->
+            <IMG width=600 alt="it's da lounge..." src="Assets/mainbanner.png"> <!--TODO: stretch -->
         </div>
-        <div class = "room-title"> Lounge </div>
+        <div class = "room-title"> <IMG width =600 alt = "it's da lounge..." src="Assets/loungebanner.png"> </div>
 
     </div>
     <div class="room">
-        <!-- Prepare a region of the page to hold the command history -->
         <div class="room-region">   
             <IMG width=1200 alt="it's da lounge..." src="Assets/khat.png" class ="parent"> 
-            <IMG width=100 alt="first kitty :)" id = "kittyOne" class = "kittyOne" src="Assets/kitties/catherine.png"> 
-            <IMG width=100 alt="second kitty :D" id = "kittyTwo" class = "kittyTwo" src="Assets/kitties/kitlyn.png">
-            <IMG width=100 alt="third kitty ^w^" id = "kittyThree" class = "kittyThree" src="Assets/kitties/catptainjack.png"> 
+            <IMG width=100 alt="first kitty :)" id = "kittyOne" class = "kittyOne" src="Assets/kitties/none.png"> 
+            <IMG width=100 alt="second kitty :D" id = "kittyTwo" class = "kittyTwo" src="Assets/kitties/none.png">
+            <IMG width=100 alt="third kitty ^w^" id = "kittyThree" class = "kittyThree" src="Assets/kitties/none.png"> 
             <IMG width=100 alt="fourth kitty ;)" id = "kittyFour" class = "kittyFour" src="Assets/kitties/none.png"> 
+            <IMG width=100 alt="first item" id = "itemOne" class = "itemOne" src="Assets/kitties/none.png">
+            <IMG width=100 alt="second item" id = "itemTwo" class = "itemTwo" src="Assets/kitties/none.png">
+            <IMG width=100 alt="third item" id = "itemThree" class = "itemThree" src="Assets/kitties/none.png">
+            <IMG width=100 alt="fourth item" id = "itemFour" class = "itemFour" src="Assets/kitties/none.png">
+
         </div>
         <hr>
     </div>
 
-        <!-- Prepare a region of the page to hold the command input box -->
     <div class="navigation-and-toys">
-        <div class = "navigation"></div>
-        <div class = "toys"></div>
+        <div class = "navigation">
+            <a href = "dining-room.html"> Dining Room Link</a>
+            <a href = "foyer.html"> Foyer Link</a>
+        </div>
+        <button class = "button">Dictionary</button>
+        <div class = "toys">
+            <h1> Toys </h1>
+            <table style="width:100%">
+                <tr>
+                  <td><IMG width=100 alt="first toy :)" id = "toyOne" class = "toy" src="Assets/toys/alligator.png"></td>
+                  <td><IMG width=100 alt="second toy :)" id = "toyTwo" class = "toy" src="Assets/toys/bingus.png"></td>
+                  <td><IMG width=100 alt="third toy :)" id = "toyThree" class = "toy" src="Assets/toys/dumbell.png"></td>
+                  <td><IMG width=100 alt="fourth toy :)" id = "toyFour" class = "toy" src="Assets/toys/laptop.png"></td>
+                </tr>
+                <tr>
+                  <td><IMG width=100 alt="fifth toy :)" id = "toyFifth" class = "toy" src="Assets/toys/tea.png"></td>
+                  <td><IMG width=100 alt="sixth toy :)" id = "toySixth" class = "toy" src="Assets/toys/tea.png"></td>
+                  <td><IMG width=100 alt="seventh toy :)" id = "toySeventh" class = "toy" src="Assets/toys/tea.png"></td>
+                  <td><IMG width=100 alt="eighth toy :)" id = "toyEighth" class = "toy" src="Assets/toys/tea.png"></td>
+                </tr>
+              </table>
+        </div>
     </div>
     <!-- Load the script! Note: the .js extension is because browsers don't use TypeScript
     directly. Instead, the author of the site needs to compile the TypeScript to JavaScript. -->
-    <script type=module src="../src/main.js"></script>
+    <script type=module src="../src/rooms.js"></script>
 </body>
 </html>
