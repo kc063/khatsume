@@ -2,8 +2,11 @@
 
 
 // The window.onload callback is invoked when the window is first loaded by the browser
+import{prepareClick, prepareSpan} from "../src/modal.js"
 window.onload = function () {
     onAreaLoad();
+    prepareClick();
+    prepareSpan();
 };
 
 
@@ -53,7 +56,7 @@ function onAreaLoad(){
     individualLoad(areaTwo, 'kittyTwo');
     individualLoad(areaThree, 'kittyThree');
     individualLoad(areaFour, 'kittyFour');
-
+    updateDictionary();
 }
 
 function individualLoad(someArray: string | any[] | null, someName: string){
@@ -87,6 +90,25 @@ function individualLoad(someArray: string | any[] | null, someName: string){
                 }
             }
 
+        }
+    }
+}
+
+function updateDictionary(){
+    for(var i = 1; i <= dictionaryCats.size; i++){
+        var name = catNames.get(i);
+        if(name == undefined){
+            console.log("Name not avaliable.")
+        }
+        else{
+            if(dictionaryCats.get(name)){
+                const cat = name + "Dict";
+                let a = document.getElementById(cat);
+                if(a instanceof HTMLElement){
+                    const wah = 'Assets/kitties/' + name + '.png'
+                    a.setAttribute('src', wah);
+                }
+            }
         }
     }
 }

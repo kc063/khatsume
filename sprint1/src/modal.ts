@@ -1,18 +1,11 @@
 //modal.ts-- modal scripts
 
-// The window.onload callback is invoked when the window is first loaded by the browser
-window.onload = () => {    
-    prepareClick()
-    prepareSpan()
-}
-
-
 
 /**
  * Prep for clicks regarding modal opening.
  */
 function prepareClick() {
-    var btn = document.getElementById("menuButton");
+    var btn = document.getElementById("modal-button");
     if (btn == null) {
         console.log("No submit button exists.");
     }
