@@ -21,6 +21,7 @@ function prepareClick() {
 
 function handleButton(){
     var modal = document.getElementById("menuModal");
+    console.log("Modal here!");
     if(modal == null){
         console.log("Modal doesn't exist.");
     } else{

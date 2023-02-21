@@ -10,23 +10,80 @@
 <body>
     <!-- Tell the browser what to show if JavaScript/TypeScript is disabled. -->
     <noscript>This example requires JavaScript to run.</noscript>
-    <!-- Prepare a region of the page to hold the entire REPL interface -->
     <!-- ugliest least modular code ever written -->
-    <script> 
-        function allowDrop(ev) {
-          ev.preventDefault();
-        }
-        
-        function drag(ev) {
-          ev.dataTransfer.setData("text", ev.target.id);
-        }
-        
-        function drop(ev) {
-          ev.preventDefault();
-          var data = ev.dataTransfer.getData("text");
-          ev.target.appendChild(document.getElementById(data));
-        }
-    </script>
+
+
+<script>
+var itemClickable = false;
+var itemArray = [0,0,0,0];
+var toy = '';
+
+function toyClick(ele) {
+      const element = document.getElementsByClassName("item");
+      //Array.from(element).forEach((a) => { 
+        //if(a instanceof HTMLElement){
+          //a.classList.add('illuminate');
+        //}})
+        toy = ele.id;
+        console.log(toy);
+        itemClickable = true;
+};
+
+function itemClick(ele) {
+    if(itemClickable){
+        var num = Number(toy)
+        console.log(num);
+        updateToys(num, ele)
+        itemClickable = false;
+      }
+      else{
+        num = 0;
+        updateToys(0, ele);
+      }   
+      const element = document.getElementsByClassName("item");
+      Array.from(element).forEach((a) => { 
+        if(a instanceof HTMLElement){
+          //a.classList.remove('illuminate');
+    }}) 
+}
+
+
+var stableNames = ['none', 'alligator', 'bingus', 'bondagefish', 'book', 'dumbell', 'laptop', 'monster', 'tea']
+
+function updateToy(numItem){
+  var num = numItem.valueOf()
+  var updateStr = 'Assets/toys/' + stableNames[num] + '.png'
+  return updateStr;
+}
+
+
+function updateToys(num, current){
+  itemArray= JSON.parse(localStorage.array);
+  var str = updateToy(num);
+  current.setAttribute('src', str);
+  console.log(current.id);
+  if(current.id == "itemOne"){
+    itemArray[0] = num;
+    current.classList.add("itemOne");
+  }
+  if(current.id == "itemTwo"){
+    itemArray[1] = num;
+    current.classList.add("itemTwo");
+  }
+  if(current.id == "itemThree"){
+    itemArray[2] = num;
+    current.classList.add("itemThree");
+  }
+  if(current.id == "itemFour"){
+    itemArray[3] = num;
+    current.classList.add("itemFour");
+  }
+  localStorage.array = JSON.stringify(itemArray);
+  console.log(localStorage.array);
+}
+
+
+</script>
 
     <div class = "titles">
         <div class = "game-title"> 
@@ -47,26 +104,26 @@
             <div class="modal-body">
               <table>
                 <tr>
-                  <td><IMG width=100 alt="first toy :)" id = "CatherineDict" class = "dict" src="Assets/kitties/none.png"></td>
-                  <td><IMG width=100 alt="second toy :)" id = "Catptain JackDict" class = "dict" src="Assets/kitties/none.png"></td>
-                  <td><IMG width=100 alt="third toy :)" id = "KitlynDict" class = "dict" src="Assets/kitties/none.png"></td>
-                  <td><IMG width=100 alt="fourth toy :)" id = "Dict" class = "dict" src="Assets/kitties/none.png"></td>
+                  <td><IMG width=100 title="Catherine" id = "CatherineDict" class = "dict" src="Assets/kitties/none.png"></td>
+                  <td><IMG width=100 title="Catptain Jack" id = "Catptain JackDict" class = "dict" src="Assets/kitties/none.png"></td>
+                  <td><IMG width=100 title="Kitlyn" id = "KitlynDict" class = "dict" src="Assets/kitties/none.png"></td>
+                  <td><IMG width=100 title="Rrrachel" id = "RrrachelDict" class = "dict" src="Assets/kitties/none.png"></td>
                 </tr>
                 <tr>
-                  <td><IMG width=100 alt="first toy :)" id = "Dict" class = "dict" src="Assets/kitties/none.png"></td>
-                  <td><IMG width=100 alt="second toy :)" id = "Dict" class = "dict" src="Assets/kitties/none.png"></td>
-                  <td><IMG width=100 alt="third toy :)" id = "Dict" class = "dict" src="Assets/kitties/none.png"></td>
-                  <td><IMG width=100 alt="fourth toy :)" id = "Dict" class = "dict" src="Assets/kitties/none.png"></td>
+                  <td><IMG width=100 title="F-El-ine" id = "F-El-ineDict" class = "dict" src="Assets/kitties/none.png"></td>
+                  <td><IMG width=100 title="Celia (Celia)" id = "Celia (Celia)Dict" class = "dict" src="Assets/kitties/none.png"></td>
+                  <td><IMG width=100 title="Remew" id = "RemewDict" class = "dict" src="Assets/kitties/none.png"></td>
+                  <td><IMG width=100 title="Liznya" id = "LiznyaDict" class = "dict" src="Assets/kitties/none.png"></td>
                 </tr>
                 <tr>
-                  <td><IMG width=100 alt="first toy :)" id = "Dict" class = "dict" src="Assets/kitties/none.png"></td>
-                  <td><IMG width=100 alt="second toy :)" id = "Dict" class = "dict" src="Assets/kitties/none.png"></td>
-                  <td><IMG width=100 alt="third toy :)" id = "Dict" class = "dict" src="Assets/kitties/none.png"></td>
-                  <td><IMG width=100 alt="fourth toy :)" id = "Dict" class = "dict" src="Assets/kitties/none.png"></td>
+                  <td><IMG width=100 title="Noah" id = "NoahDict" class = "dict" src="Assets/kitties/none.png"></td>
+                  <td><IMG width=100 title="Nickitty" id = "NickittyDict" class = "dict" src="Assets/kitties/none.png"></td>
+                  <td><IMG width=100 title="Gabby Tabby" id = "Gabby TabbyDict" class = "dict" src="Assets/kitties/none.png"></td>
+                  <td><IMG width=100 title="Ameh" id = "AmehDict" class = "dict" src="Assets/kitties/none.png"></td>
                 </tr>
                 <tr>
-                  <td><IMG width=100 alt="first toy :)" id = "Dict" class = "dict" src="Assets/kitties/none.png"></td>
-                  <td><IMG width=100 alt="second toy :)" id = "Dict" class = "dict" src="Assets/kitties/none.png"></td>
+                  <td><IMG width=100 title="Emmau" id = "EmmauDict" class = "dict" src="Assets/kitties/none.png"></td>
+                  <td><IMG width=100 title="Cleocatra" id = "CleocatraDict" class = "dict" src="Assets/kitties/none.png"></td>
                 </tr>
               </table>
             </div>
@@ -78,11 +135,10 @@
             <IMG width=100 alt="second kitty :D" id = "kittyTwo" class = "kittyTwo" src="Assets/kitties/none.png">
             <IMG width=100 alt="third kitty ^w^" id = "kittyThree" class = "kittyThree" src="Assets/kitties/none.png"> 
             <IMG width=100 alt="fourth kitty ;)" id = "kittyFour" class = "kittyFour" src="Assets/kitties/none.png"> 
-            <IMG width=100 alt="first item" id = "itemOne" class = "itemOne" src="Assets/kitties/none.png">
-            <IMG width=100 alt="second item" id = "itemTwo" class = "itemTwo" src="Assets/kitties/none.png">
-            <IMG width=100 alt="third item" id = "itemThree" class = "itemThree" src="Assets/kitties/none.png">
-            <IMG width=100 alt="fourth item" id = "itemFour" class = "itemFour" src="Assets/kitties/none.png">
-
+            <IMG width=100 alt="first item" id = "itemOne" class = "item" onclick= itemClick(this) src="Assets/kitties/none.png">
+            <IMG width=100 alt="second item" id = "itemTwo" class = "item"  onclick= itemClick(this) src="Assets/kitties/none.png">
+            <IMG width=100 alt="third item" id = "itemThree" class = "item" onclick= itemClick(this) src="Assets/kitties/none.png">
+            <IMG width=100 alt="fourth item" id = "itemFour" class = "item" onclick= itemClick(this) src="Assets/kitties/none.png">
         </div>
         <hr>
     </div>
@@ -97,16 +153,16 @@
             <h1> Toys </h1>
             <table style="width:100%">
                 <tr>
-                  <td><IMG width=100 alt="first toy :)" id = "toyOne" class = "toy" src="Assets/toys/alligator.png"></td>
-                  <td><IMG width=100 alt="second toy :)" id = "toyTwo" class = "toy" src="Assets/toys/bingus.png"></td>
-                  <td><IMG width=100 alt="third toy :)" id = "toyThree" class = "toy" src="Assets/toys/dumbell.png"></td>
-                  <td><IMG width=100 alt="fourth toy :)" id = "toyFour" class = "toy" src="Assets/toys/laptop.png"></td>
+                  <td><IMG width=100 alt="first toy :)" id = "1" class = "toy" onclick = toyClick(this) src="Assets/toys/alligator.png"></td>
+                  <td><IMG width=100 alt="second toy :)" id = "2" class = "toy" onclick = toyClick(this)  src="Assets/toys/bingus.png"></td>
+                  <td><IMG width=100 alt="third toy :)" id = "3" class = "toy" onclick = toyClick(this) src="Assets/toys/bondagefish.png"></td>
+                  <td><IMG width=100 alt="fourth toy :)" id = "4" class = "toy" onclick = toyClick(this) src="Assets/toys/book.png"></td>
                 </tr>
                 <tr>
-                  <td><IMG width=100 alt="fifth toy :)" id = "toyFifth" class = "toy" src="Assets/toys/tea.png"></td>
-                  <td><IMG width=100 alt="sixth toy :)" id = "toySixth" class = "toy" src="Assets/toys/tea.png"></td>
-                  <td><IMG width=100 alt="seventh toy :)" id = "toySeventh" class = "toy" src="Assets/toys/tea.png"></td>
-                  <td><IMG width=100 alt="eighth toy :)" id = "toyEighth" class = "toy" src="Assets/toys/tea.png"></td>
+                  <td><IMG width=100 alt="fifth toy :)" id = "5" class = "toy" onclick = toyClick(this) src="Assets/toys/dumbell.png"></td>
+                  <td><IMG width=100 alt="sixth toy :)" id = "6" class = "toy" onclick = toyClick(this) src="Assets/toys/laptop.png"></td>
+                  <td><IMG width=100 alt="seventh toy :)" id = "7" class = "toy" onclick = toyClick(this) src="Assets/toys/monster.png"></td>
+                  <td><IMG width=100 alt="eighth toy :)" id = "8" class = "toy"  onclick = toyClick(this) src="Assets/toys/tea.png"></td>
                 </tr>
               </table>
         </div>
@@ -115,5 +171,6 @@
     directly. Instead, the author of the site needs to compile the TypeScript to JavaScript. -->
     <script type=module src="../src/rooms.js"></script>
     <script type=module src="../src/modal.js"></script>
+    <script type=module src="../src/toys.js"></script>
 </body>
 </html>
